@@ -1,12 +1,13 @@
-import time
 import board
 import neopixel
+import time
+import usb_hid
 
 from digitalio import DigitalInOut, Direction, Pull
 
-import usb_hid
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
+
 
 kbd = Keyboard(usb_hid.devices)
 
@@ -24,8 +25,11 @@ while True:
         pressing = new_pressing
 
         if new_pressing:
-            pixels.fill((10, 20, 30))
+            pixels.fill((2, 4, 6))
             kbd.send(Keycode.CONTROL)
         else:
             pixels.fill((0, 0, 0))
-    time.sleep(0.033)
+    if pressing:
+        time.sleep(0.064)
+    else:
+        time.sleep(0.5)
