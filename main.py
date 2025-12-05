@@ -26,9 +26,8 @@ while True:
 
         if new_pressing:
             pixels.fill((2, 4, 6))
-            kbd.send(Keycode.CONTROL)
-        else:
             pixels.fill((0, 0, 0))
+            kbd.send(Keycode.CONTROL)
     if pressing:
         time.sleep(0.064)
     else:
